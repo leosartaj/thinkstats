@@ -1,4 +1,4 @@
 README
 ******
-My journey with Think Stats by Allen B. Downey
+Playground for Think Stats by Allen B. Downey
 
