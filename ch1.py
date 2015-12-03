@@ -1,7 +1,10 @@
 """
-My Implementation
+Chapter 1
 """
-import survey, sys
+
+import sys
+import survey
+import thinkstats as ts
 
 def live_births(table):
     cou = 0
@@ -30,6 +33,10 @@ def average(table):
             float(len(table.records)))
 
 
+def MeanVar(table):
+    return ts.MeanVar([rec.prglength for rec in table.records])
+
+
 def summarize(table):
     """Prints summary statistics for first babies and others.
 
@@ -41,14 +48,18 @@ def summarize(table):
     print 'Number of first babies', len(first.records)
     print 'Number of others', len(other.records)
 
-    mu1, mu2 = average(first), average(other)
+    (mu1, st1), (mu2, st2) = MeanVar(first), MeanVar(other)
 
     print 'Mean gestation in weeks:'
     print 'First babies', mu1
     print 'Others', mu2
-
     print 'Difference in days', (mu1 - mu2) * 7.0
-    print 'Difference in hours', (mu1 - mu2) * 7.0 * 24.0
+
+    print 'STD of gestation in weeks:'
+    print 'First babies', st1
+    print 'Others', st2
+    print 'Difference in days', (st1 - st2) * 7.0
+
 
 
 if __name__ == '__main__':
